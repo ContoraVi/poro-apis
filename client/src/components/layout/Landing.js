@@ -14,7 +14,7 @@ class Landing extends Component {
         return (
             <div className="">
                 <div className="background">
-                    <h1>Landing Page works!</h1>
+                    <h1>Poro Page works!</h1>
                 </div>
             </div>
         );
