@@ -11,12 +11,6 @@ import {connect} from 'react-redux';
 import {logoutUser} from "../../actions/authActions";
 import {logoutApiUser} from "../../actions/apiAuthActions";
 
-
-// import Login from "../auth/Login";
-// import ApiLogin from "../auth/ApiLogin";
-// import Landing from '../layout/Landing';
-// import classNames from 'classnames';
-
 const styles = {
     root: {
         flexGrow: 1,
@@ -24,13 +18,9 @@ const styles = {
     grow: {
         flexGrow: 1,
     },
-    menuButton: {
-        marginLeft: -12,
-        marginRight: 20,
-    },
     padding: {
-        paddingBottom: 20
-    },
+        paddingBottom: 80
+     },
 };
 
 class Navbar extends Component {
@@ -71,7 +61,7 @@ class Navbar extends Component {
         return (
             <div>
                 <div className={classes.padding}>
-                    <AppBar position="sticky">
+                    <AppBar position="fixed">
                         <Toolbar>
                             <Typography
                                 component={NavLink}

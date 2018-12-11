@@ -16,8 +16,12 @@ import Navbar from './components/layout/Navbar';
 import ApiLogin from './components/auth/ApiLogin';
 import Dashboard from './components/dashboard/Dashboard';
 import Coas from './components/data/Coas';
+import LedgerReceipts from "./components/data/LedgerReceipts";
+import LedgerReceiptId from "./components/data/LedgerReceiptId";
 
 import './App.css';
+
+
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -70,6 +74,8 @@ class App extends Component {
                             <PrivateRoute path="/apiLogin" component={ApiLogin}/>
                             <PrivateRoute path="/dashboard" component={Dashboard}/>
                             <PrivateRoute path="/coas" component={Coas}/>
+                            <PrivateRoute path="/ledgerreceipts" component={LedgerReceipts}/>
+                            <PrivateRoute path="/ledgerreceipt" component={LedgerReceiptId}/>
                         </Switch>
                     </div>
                 </Router>

@@ -4,27 +4,13 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {withStyles} from '@material-ui/core/styles';
 
-import {getCoas} from "../../actions/coasActions";
+import {getCoas} from '../../actions/coasActions';
+import {getLedgerReceipts} from '../../actions/ledgerReceiptsActions';
 
 const styles = theme => ({
-    root: {
-        flexGrow: 1,
-        width: '100%',
-        marginTop: theme.spacing.unit * 3,
-        overflowX: 'auto',
-    },
-    grow: {
-        flexGrow: 1,
-    },
     menuButton: {
         marginLeft: -12,
         marginRight: 20,
-    },
-    padding: {
-        paddingBottom: 20
-    },
-    table: {
-        minWidth: 700,
     },
 });
 
@@ -36,12 +22,20 @@ class Dashboard extends React.Component {
         }
     }
 
-    onGetCoaDataClick() {
+    onChartOfAccountsClick() {
         const accessToken = {
             access_token: this.props.apiAuth.apiUser.access_token
         };
         this.props.getCoas(accessToken);
         this.props.history.push('/coas')
+    }
+
+    onGetLedgerReceiptsClick() {
+        const accessToken = {
+            access_token: this.props.apiAuth.apiUser.access_token
+        };
+        this.props.getLedgerReceipts(accessToken);
+        this.props.history.push('/ledgerreceipts')
     }
 
     render() {
@@ -50,12 +44,20 @@ class Dashboard extends React.Component {
 
             <div>
                 <Button
-                    onClick={this.onGetCoaDataClick.bind(this)}
+                    onClick={this.onChartOfAccountsClick.bind(this)}
                     variant="contained"
                     color="primary"
                     className={classes.menuButton}
                 >
-                    get coa's
+                    get char of accounts
+                </Button>
+                <Button
+                    onClick={this.onGetLedgerReceiptsClick.bind(this)}
+                    variant="contained"
+                    color="primary"
+                    className={classes.menuButton}
+                >
+                    get ledger receipts
                 </Button>
             </div>
         );
@@ -64,6 +66,7 @@ class Dashboard extends React.Component {
 
 Dashboard.propTypes = {
     getCoas: PropTypes.func.isRequired,
+    getLedgerReceipts: PropTypes.func.isRequired,
     apiAuth: PropTypes.object.isRequired,
 };
 
@@ -71,4 +74,4 @@ const mapStateToProps = state => ({
     apiAuth: state.apiAuth,
 });
 
-export default connect(mapStateToProps, {getCoas})(withStyles(styles)(Dashboard));
+export default connect(mapStateToProps, {getCoas, getLedgerReceipts})(withStyles(styles)(Dashboard));

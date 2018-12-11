@@ -1,31 +1,31 @@
-import {GET_COAS, COAS_LOADING, COAS_ERROR} from '../actions/types';
+import {GET_LEDGER_RECEIPT_ID, LEDGER_RECEIPT_ID_LOADING, LEDGER_RECEIPT_ID_ERROR} from '../actions/types';
 
 const intialState = {
-    coas: null,
+    ledgerReceiptId: null,
     loading: false,
-    coas_errors: null,
+    errors: null,
 };
 
 export default function (state = intialState, action) {
     switch (action.type) {
-        case COAS_LOADING:
+        case LEDGER_RECEIPT_ID_LOADING:
             return {
                 ...state,
                 loading: true,
             };
-        case GET_COAS:
+        case GET_LEDGER_RECEIPT_ID:
             return {
                 ...state,
-                coas: action.payload,
+                ledgerReceiptId: action.payload,
                 loading: false,
-                coas_errors: null
+                errors: null
             };
-        case COAS_ERROR:
+        case LEDGER_RECEIPT_ID_ERROR:
             return {
                 ...state,
-                coas: null,
+                ledgerReceiptId: null,
                 loading: false,
-                coas_errors: action.payload,
+                errors: action.payload,
             };
         default:
             return state;
