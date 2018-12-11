@@ -23,11 +23,11 @@ module.exports = function validateApiLoginInput(data) {
     }
 
     if (Validator.isEmpty(data.client_id)) {
-        errors.client_id = 'Password field is required';
+        errors.client_id = 'Client Id field is required';
     }
 
     if (Validator.isEmpty(data.client_secret)) {
-        errors.client_secret = 'Password field is required';
+        errors.client_secret = 'Client Secret field is required';
     }
 
     return {
